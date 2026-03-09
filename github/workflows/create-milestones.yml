@@ -1,0 +1,35 @@
+name: Create Milestones
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-milestones:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create V1 - Core Launch
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/ahmadekoekkoek/ep-comp/milestones \
+            -d '{"title":"V1 - Core Launch","due_on":"2025-06-30T00:00:00Z","description":"Shippable V1: Time/Season system, LC system, Farming, Animal care, Faction pressure, Economy sinks, UI, Web3 integration, Mining, Fishing, Tool progression."}'
+
+      - name: Create V1.1 - Extensions
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/ahmadekoekkoek/ep-comp/milestones \
+            -d '{"title":"V1.1 - Extensions","due_on":"2025-09-30T00:00:00Z","description":"Post-launch safe additions: Social & Romance system, expanded zones, additional crops and animals, UI polish."}'
+
+      - name: Create V2+ - Future Vision
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/ahmadekoekkoek/ep-comp/milestones \
+            -d '{"title":"V2+ - Future Vision","due_on":"2025-12-31T00:00:00Z","description":"Long-term roadmap: Advanced Web3 features, guild systems, cross-chain support, expanded world map and economy."}'
