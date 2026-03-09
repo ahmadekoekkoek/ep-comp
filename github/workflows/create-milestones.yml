@@ -1,0 +1,10 @@
+name: Create Milestones
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-milestones:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello
